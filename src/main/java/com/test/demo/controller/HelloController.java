@@ -10,19 +10,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String helloPrint(Model model) {
 		
 		model.addAttribute("message", "Spring 4 MVC Hello World!");
-		return "hello";
+		return "index";
 	}
 	
-	@RequestMapping(value="/hello/{name:.+}", method = RequestMethod.GET)
+	@RequestMapping(value="/index/{name:.+}", method = RequestMethod.GET)
 	public ModelAndView hello(@PathVariable("name") String name) {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
-		modelAndView.setViewName("hello");
+		modelAndView.setViewName("index");
 		modelAndView.addObject("msg", name);
 		
 		return modelAndView;
